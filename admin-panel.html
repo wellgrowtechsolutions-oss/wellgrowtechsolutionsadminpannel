@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WellGrow Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #219ebc;
+    --accent: #ff6a1a;
+    --bg: #f5f9fc;
+    --text: #333;
+    --light: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+  /* Layout */
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; background: var(--primary); color: #fff; display: flex; flex-direction: column; }
+  .sidebar h2 { text-align: center; padding: 20px; background: var(--accent); font-weight: 700; }
+  .nav-links { list-style: none; padding: 0; }
+  .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.2); }
+  .nav-links a { display: block; padding: 14px 18px; color: #fff; text-decoration: none; font-weight: 600; }
+  .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.2); }
+
+  .content { flex: 1; padding: 20px; }
+  header { background: var(--light); padding: 16px 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  header h1 { font-size: 20px; color: var(--primary); }
+  .logout { background: var(--accent); color: #fff; border: none; padding: 10px 14px; border-radius: 8px; cursor: pointer; }
+
+  /* Dashboard */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .card { background: var(--light); border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; }
+  .card h3 { color: var(--primary); font-size: 28px; margin-bottom: 6px; }
+  .card p { font-weight: 600; color: var(--text); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; background: var(--light); border-radius: 10px; overflow: hidden; }
+  th, td { padding: 12px 16px; border-bottom: 1px solid #eee; text-align: left; }
+  th { background: var(--primary); color: #fff; }
+  tr:hover { background: #f1faff; }
+
+  @media(max-width:768px){
+    .layout { flex-direction: column; }
+    .sidebar { width: 100%; flex-direction: row; overflow-x: auto; }
+    .sidebar h2 { display: none; }
+    .nav-links { display: flex; }
+    .nav-links a { padding: 10px 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <h2>WELLGROW ADMIN</h2>
+    <ul class="nav-links">
+      <li><a href="#dashboard" class="active">Dashboard</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#manpower">Manpower</a></li>
+      <li><a href="#leads">Leads</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <header>
+      <h1>Admin Dashboard</h1>
+      <button class="logout">Logout</button>
+    </header>
+
+    <!-- Dashboard -->
+    <section id="dashboard">
+      <div class="cards">
+        <div class="card"><h3>10,000+</h3><p>Happy Customers</p></div>
+        <div class="card"><h3>200+</h3><p>Partners</p></div>
+        <div class="card"><h3>5,000+</h3><p>Manpower</p></div>
+        <div class="card"><h3>₹ 15L+</h3><p>Total Payout</p></div>
+      </div>
+    </section>
+
+    <!-- Partner Management -->
+    <section id="partners" style="margin-top:40px;">
+      <h2>Partner Management</h2>
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>001</td><td>ABC Associates</td><td>DSA</td><td>Approved</td><td><button>View</button></td></tr>
+          <tr><td>002</td><td>XYZ Vendors</td><td>Vendor</td><td>Pending</td><td><button>Approve</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Leads -->
+    <section id="leads" style="margin-top:40px;">
+      <h2>Leads / Enquiries</h2>
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Message</th></tr></thead>
+        <tbody>
+          <tr><td>1001</td><td>Ravi Kumar</td><td>ravi@example.com</td><td>Looking for DSA tie-up.</td></tr>
+          <tr><td>1002</td><td>Anita Sharma</td><td>anita@example.com</td><td>Need manpower supply quote.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
+</body>
+</html>
